@@ -5,7 +5,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    BlocProvider<AppCubit>(
+      create: (_) => AppCubit(PageController(initialPage: 0)),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatefulWidget {
@@ -16,11 +21,9 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  final PageController _controller = PageController(initialPage: 0);
-
   @override
   void dispose() {
-    _controller.dispose();
+    context.read<AppCubit>().state.controller.dispose();
     super.dispose();
   }
 
@@ -29,10 +32,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       title: 'Bloc Nav Demo',
       theme: ThemeData(primarySwatch: Colors.green),
-      home: BlocProvider<AppCubit>(
-        create: (_) => AppCubit(_controller),
-        child: const App(),
-      ),
+      home: const App(),
       onGenerateRoute: (settings) => generateRoute(settings, context),
     );
   }

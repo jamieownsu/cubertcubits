@@ -37,8 +37,6 @@ class _PurchasePageState extends State<PurchasePage> {
             _purchasePending = false;
           });
           context.read<AppCubit>().updateIsPremium(true);
-          await Future.delayed(const Duration(milliseconds: 2000));
-          Navigator.of(context).pop();
         },
         child: _buildButtonText(),
       ),

@@ -67,7 +67,7 @@ class StatelessChildWidget extends StatelessWidget {
             const SizedBox(height: 40),
             _buildButton(),
           ]),
-      bottomNavigationBar: const BottomNavigationWidget(),
+      // bottomNavigationBar: const BottomNavigationWidget(),
     );
   }
 }
