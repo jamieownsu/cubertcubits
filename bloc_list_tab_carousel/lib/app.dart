@@ -14,6 +14,12 @@ class App extends StatefulWidget {
 }
 
 class _AppState extends State<App> {
+  @override
+  void dispose() {
+    context.read<AppCubit>().state.controller.dispose();
+    super.dispose();
+  }
+
   Widget _buildPurchaseButton() {
     return ElevatedButton(
       style:
