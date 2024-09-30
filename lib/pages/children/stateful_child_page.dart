@@ -23,33 +23,34 @@ class _StatefulChildWidget extends State<StatefulChildWidget> {
     return Scaffold(
       appBar: AppBar(title: const Text('Stateful Child')),
       body: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              'I am now ${context.watch<AppCubit>().state.userLanguage}',
-              style: Theme.of(context).textTheme.titleLarge,
-              textAlign: TextAlign.center,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            'I am now ${context.watch<AppCubit>().state.userLanguage}',
+            style: Theme.of(context).textTheme.titleLarge,
+            textAlign: TextAlign.center,
+          ),
+          const SizedBox(height: 40),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 80),
+            child: ElevatedButton(
+              onPressed: () => toggleLanguage(),
+              child: const Text('Toggle language'),
             ),
-            const SizedBox(height: 40),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 80),
-              child: ElevatedButton(
-                onPressed: () => toggleLanguage(),
-                child: const Text('Toggle language'),
-              ),
-            ),
-            const SizedBox(height: 40),
-            Text(
-              'Are you premium?',
-              style: Theme.of(context).textTheme.titleLarge,
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(height: 40),
-            context.watch<AppCubit>().state.isPremium
-                ? const Icon(Icons.check_circle, size: 64, color: Colors.green)
-                : const Icon(Icons.close, size: 64, color: Colors.red),
-          ]),
+          ),
+          const SizedBox(height: 40),
+          Text(
+            'Are you premium?',
+            style: Theme.of(context).textTheme.titleLarge,
+            textAlign: TextAlign.center,
+          ),
+          const SizedBox(height: 40),
+          context.watch<AppCubit>().state.isPremium
+              ? const Icon(Icons.check_circle, size: 64, color: Colors.green)
+              : const Icon(Icons.close, size: 64, color: Colors.red),
+        ],
+      ),
       // bottomNavigationBar: BottomNavigationWidget(),
     );
   }

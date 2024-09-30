@@ -46,23 +46,24 @@ class _PurchasePageState extends State<PurchasePage> {
 
   Widget _buildBody() {
     return Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            context.watch<AppCubit>().state.isPremium
-                ? 'WOW such premium!'
-                : 'Are you premium?',
-            style: Theme.of(context).textTheme.titleLarge,
-            textAlign: TextAlign.center,
-          ),
-          const SizedBox(height: 40),
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text(
           context.watch<AppCubit>().state.isPremium
-              ? const Icon(Icons.check_circle, size: 64, color: Colors.green)
-              : const Icon(Icons.close, size: 64, color: Colors.red),
-          const SizedBox(height: 40),
-          if (!context.watch<AppCubit>().state.isPremium) _buildBuyButton(),
-        ]);
+              ? 'WOW such premium!'
+              : 'Are you premium?',
+          style: Theme.of(context).textTheme.titleLarge,
+          textAlign: TextAlign.center,
+        ),
+        const SizedBox(height: 40),
+        context.watch<AppCubit>().state.isPremium
+            ? const Icon(Icons.check_circle, size: 64, color: Colors.green)
+            : const Icon(Icons.close, size: 64, color: Colors.red),
+        const SizedBox(height: 40),
+        if (!context.watch<AppCubit>().state.isPremium) _buildBuyButton(),
+      ],
+    );
   }
 
   @override

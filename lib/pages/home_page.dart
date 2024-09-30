@@ -28,31 +28,34 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-        Text(
-          'Bloc Nav Demo',
-          style: Theme.of(context).textTheme.displaySmall,
-          textAlign: TextAlign.center,
-        ),
-        const SizedBox(height: 60),
-        Text(
-          'I am now ${context.watch<AppCubit>().state.userLanguage}',
-          style: Theme.of(context).textTheme.titleLarge,
-        ),
-        const SizedBox(height: 40),
-        _buildChildButton(context),
-        const SizedBox(height: 40),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 60),
-          child: Text(
-            'Second child only avaible to premium users!',
-            style: Theme.of(context).textTheme.titleLarge,
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            'Bloc Nav Demo',
+            style: Theme.of(context).textTheme.displaySmall,
             textAlign: TextAlign.center,
           ),
-        ),
-        const SizedBox(height: 40),
-        _buildPremiumChildButton(context)
-      ]),
+          const SizedBox(height: 60),
+          Text(
+            'I am now ${context.watch<AppCubit>().state.userLanguage}',
+            style: Theme.of(context).textTheme.titleLarge,
+          ),
+          const SizedBox(height: 40),
+          _buildChildButton(context),
+          const SizedBox(height: 40),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 60),
+            child: Text(
+              'Second child only avaible to premium users!',
+              style: Theme.of(context).textTheme.titleLarge,
+              textAlign: TextAlign.center,
+            ),
+          ),
+          const SizedBox(height: 40),
+          _buildPremiumChildButton(context),
+        ],
+      ),
     );
   }
 }
