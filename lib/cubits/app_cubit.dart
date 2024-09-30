@@ -6,6 +6,7 @@ const routes = ['Home', 'List', 'Settings'];
 
 class AppCubit extends Cubit<AppState> {
   final PageController controller = PageController();
+
   AppCubit() : super(const AppState.initial());
 
   updateNavigationIndex(int index) {

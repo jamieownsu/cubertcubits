@@ -1,4 +1,3 @@
-
 enum AppStatus { initial, update }
 
 class AppState {

@@ -7,17 +7,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class App extends StatefulWidget {
-  const App({super.key});
+  const App({
+    super.key,
+  });
 
   @override
   State<App> createState() => _AppState();
 }
 
 class _AppState extends State<App> {
-  late PageController controller;
   @override
   void dispose() {
-    controller.dispose();
+    context.read<AppCubit>().controller.dispose();
     super.dispose();
   }
 
@@ -38,17 +39,14 @@ class _AppState extends State<App> {
           if (!context.watch<AppCubit>().state.isPremium) _buildPurchaseButton()
         ],
       ),
-      body: BlocProvider.value(
-        value: BlocProvider.of<AppCubit>(context),
-        child: PageView(
-            physics: const NeverScrollableScrollPhysics(),
-            controller: controller,
-            children: const <Widget>[
-              HomePage(),
-              SomeListPage(),
-              SettingsPage(),
-            ]),
-      ),
+      body: PageView(
+          physics: const NeverScrollableScrollPhysics(),
+          controller: context.watch<AppCubit>().controller,
+          children: const <Widget>[
+            HomePage(),
+            SomeListPage(),
+            SettingsPage(),
+          ]),
       bottomNavigationBar: const BottomNavigationWidget(),
     );
   }

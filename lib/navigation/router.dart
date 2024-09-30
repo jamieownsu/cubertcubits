@@ -11,42 +11,42 @@ Route<dynamic> generateRoute(RouteSettings settings, BuildContext context) {
   switch (settings.name) {
     case '/main':
       return MaterialPageRoute(
-        builder: (_) => BlocProvider.value(
+        builder: (context) => BlocProvider.value(
           value: BlocProvider.of<AppCubit>(context),
           child: const App(),
         ),
       );
     case '/settings':
       return MaterialPageRoute(
-        builder: (_) => BlocProvider.value(
+        builder: (context) => BlocProvider.value(
           value: BlocProvider.of<AppCubit>(context),
           child: const SettingsPage(),
         ),
       );
     case '/first':
       return MaterialPageRoute(
-        builder: (_) => BlocProvider.value(
+        builder: (context) => BlocProvider.value(
           value: BlocProvider.of<AppCubit>(context),
           child: const StatelessChildWidget(),
         ),
       );
     case '/second':
       return MaterialPageRoute(
-        builder: (_) => BlocProvider.value(
+        builder: (context) => BlocProvider.value(
           value: BlocProvider.of<AppCubit>(context),
           child: const StatefulChildWidget(),
         ),
       );
     case '/purchase':
       return MaterialPageRoute(
-        builder: (_) => BlocProvider.value(
+        builder: (context) => BlocProvider.value(
           value: BlocProvider.of<AppCubit>(context),
           child: const PurchasePage(),
         ),
       );
     default:
       return MaterialPageRoute(
-        builder: (_) => Scaffold(
+        builder: (context) => Scaffold(
           body: Center(
             child: Text('No route defined for ${settings.name}'),
           ),

@@ -7,7 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 void main() {
   runApp(
     BlocProvider<AppCubit>(
-      create: (_) => AppCubit(),
+      create: (context) => AppCubit(),
       child: const MyApp(),
     ),
   );
