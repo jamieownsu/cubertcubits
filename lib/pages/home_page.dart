@@ -30,7 +30,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       body: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
         Text(
-          'cubits 4 cubert',
+          'Bloc Nav Demo',
           style: Theme.of(context).textTheme.displaySmall,
           textAlign: TextAlign.center,
         ),
