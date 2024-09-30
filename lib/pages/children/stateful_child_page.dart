@@ -51,7 +51,6 @@ class _StatefulChildWidget extends State<StatefulChildWidget> {
               : const Icon(Icons.close, size: 64, color: Colors.red),
         ],
       ),
-      // bottomNavigationBar: BottomNavigationWidget(),
     );
   }
 }

@@ -67,7 +67,6 @@ class StatelessChildWidget extends StatelessWidget {
           buildButton(),
         ],
       ),
-      // bottomNavigationBar: const BottomNavigationWidget(),
     );
   }
 }
