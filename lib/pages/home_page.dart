@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key key}) : super(key: key);
+  const HomePage({super.key});
 
   Widget _buildChildButton(BuildContext context) {
     return ElevatedButton(
@@ -15,10 +15,8 @@ class HomePage extends StatelessWidget {
   Widget _buildPremiumChildButton(BuildContext context) {
     return ElevatedButton(
       style: context.read<AppCubit>().state.isPremium
-          ? ButtonStyle(
-              backgroundColor: MaterialStateProperty.all(Colors.green))
-          : ButtonStyle(
-              backgroundColor: MaterialStateProperty.all(Colors.grey)),
+          ? ButtonStyle(backgroundColor: WidgetStateProperty.all(Colors.green))
+          : ButtonStyle(backgroundColor: WidgetStateProperty.all(Colors.grey)),
       onPressed: () => context.read<AppCubit>().state.isPremium
           ? Navigator.pushNamed(context, '/second')
           : ScaffoldMessenger.of(context)
@@ -33,13 +31,13 @@ class HomePage extends StatelessWidget {
       body: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
         Text(
           'cubits 4 cubert',
-          style: Theme.of(context).textTheme.headline3,
+          style: Theme.of(context).textTheme.displaySmall,
           textAlign: TextAlign.center,
         ),
         const SizedBox(height: 60),
         Text(
           'I am now ${context.watch<AppCubit>().state.userLanguage}',
-          style: Theme.of(context).textTheme.headline6,
+          style: Theme.of(context).textTheme.titleLarge,
         ),
         const SizedBox(height: 40),
         _buildChildButton(context),
@@ -48,7 +46,7 @@ class HomePage extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 60),
           child: Text(
             'Second child only avaible to premium users!',
-            style: Theme.of(context).textTheme.headline6,
+            style: Theme.of(context).textTheme.titleLarge,
             textAlign: TextAlign.center,
           ),
         ),

@@ -5,8 +5,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 const routes = ['Home', 'List', 'Settings'];
 
 class AppCubit extends Cubit<AppState> {
-  final PageController controller;
-  AppCubit(this.controller) : super(AppState.initial(controller));
+  final PageController controller = PageController();
+  AppCubit() : super(const AppState.initial());
 
   updateNavigationIndex(int index) {
     controller.animateToPage(
@@ -16,7 +16,6 @@ class AppCubit extends Cubit<AppState> {
     );
     emit(
       AppState.update(
-        state.controller,
         index,
         state.userLanguage,
         routes[index],
@@ -28,7 +27,6 @@ class AppCubit extends Cubit<AppState> {
   updateUserLanguage(String language) {
     emit(
       AppState.update(
-        state.controller,
         state.navigationIndex,
         language,
         state.pageTitle,
@@ -40,7 +38,6 @@ class AppCubit extends Cubit<AppState> {
   updateIsPremium(bool isPremium) {
     emit(
       AppState.update(
-        state.controller,
         state.navigationIndex,
         state.userLanguage,
         state.pageTitle,

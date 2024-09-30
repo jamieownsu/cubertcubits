@@ -7,23 +7,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class App extends StatefulWidget {
-  const App({Key key}) : super(key: key);
+  const App({super.key});
 
   @override
-  _AppState createState() => _AppState();
+  State<App> createState() => _AppState();
 }
 
 class _AppState extends State<App> {
+  late PageController controller;
   @override
   void dispose() {
-    context.read<AppCubit>().state.controller.dispose();
+    controller.dispose();
     super.dispose();
   }
 
   Widget _buildPurchaseButton() {
     return ElevatedButton(
-      style:
-          ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.red)),
+      style: ButtonStyle(backgroundColor: WidgetStateProperty.all(Colors.red)),
       onPressed: () => Navigator.pushNamed(context, '/purchase'),
       child: const Text('Buy Premium'),
     );
@@ -42,7 +42,7 @@ class _AppState extends State<App> {
         value: BlocProvider.of<AppCubit>(context),
         child: PageView(
             physics: const NeverScrollableScrollPhysics(),
-            controller: context.read<AppCubit>().state.controller,
+            controller: controller,
             children: const <Widget>[
               HomePage(),
               SomeListPage(),

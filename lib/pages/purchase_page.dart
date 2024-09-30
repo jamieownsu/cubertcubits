@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class PurchasePage extends StatefulWidget {
-  const PurchasePage({Key key}) : super(key: key);
+  const PurchasePage({super.key});
 
   @override
-  _PurchasePageState createState() => _PurchasePageState();
+  State<PurchasePage> createState() => _PurchasePageState();
 }
 
 class _PurchasePageState extends State<PurchasePage> {
@@ -36,6 +36,7 @@ class _PurchasePageState extends State<PurchasePage> {
           setState(() {
             _purchasePending = false;
           });
+          // ignore: use_build_context_synchronously
           context.read<AppCubit>().updateIsPremium(true);
         },
         child: _buildButtonText(),
@@ -52,7 +53,7 @@ class _PurchasePageState extends State<PurchasePage> {
             context.watch<AppCubit>().state.isPremium
                 ? 'WOW such premium!'
                 : 'Are you premium?',
-            style: Theme.of(context).textTheme.headline6,
+            style: Theme.of(context).textTheme.titleLarge,
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: 40),

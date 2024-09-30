@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SettingsPage extends StatelessWidget {
-  const SettingsPage({Key key}) : super(key: key);
+  const SettingsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +11,7 @@ class SettingsPage extends StatelessWidget {
       const SizedBox(height: 40),
       Text(
         'Choose your language:',
-        style: Theme.of(context).textTheme.headline6,
+        style: Theme.of(context).textTheme.titleLarge,
       ),
       const SizedBox(height: 20),
       RadioListTile<String>(
@@ -19,14 +19,14 @@ class SettingsPage extends StatelessWidget {
         value: 'English',
         groupValue: context.watch<AppCubit>().state.userLanguage,
         onChanged: (value) =>
-            context.read<AppCubit>().updateUserLanguage(value),
+            context.read<AppCubit>().updateUserLanguage(value!),
       ),
       RadioListTile<String>(
         title: const Text('French'),
         value: 'French',
         groupValue: context.watch<AppCubit>().state.userLanguage,
         onChanged: (value) =>
-            context.read<AppCubit>().updateUserLanguage(value),
+            context.read<AppCubit>().updateUserLanguage(value!),
       ),
     ]);
   }

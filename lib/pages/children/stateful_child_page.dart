@@ -3,16 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class StatefulChildWidget extends StatefulWidget {
-  const StatefulChildWidget({Key key}) : super(key: key);
+  const StatefulChildWidget({super.key});
 
   @override
-  _SecondChildState createState() => _SecondChildState();
+  State<StatefulChildWidget> createState() => _StatefulChildWidget();
 }
 
-class _SecondChildState extends State<StatefulChildWidget> {
+class _StatefulChildWidget extends State<StatefulChildWidget> {
   @override
   Widget build(BuildContext context) {
-    _toggleLanguage() {
+    toggleLanguage() {
       if (context.read<AppCubit>().state.userLanguage == 'English') {
         context.read<AppCubit>().updateUserLanguage('French');
       } else {
@@ -28,21 +28,21 @@ class _SecondChildState extends State<StatefulChildWidget> {
           children: [
             Text(
               'I am now ${context.watch<AppCubit>().state.userLanguage}',
-              style: Theme.of(context).textTheme.headline6,
+              style: Theme.of(context).textTheme.titleLarge,
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 40),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 80),
               child: ElevatedButton(
-                onPressed: () => _toggleLanguage(),
+                onPressed: () => toggleLanguage(),
                 child: const Text('Toggle language'),
               ),
             ),
             const SizedBox(height: 40),
             Text(
               'Are you premium?',
-              style: Theme.of(context).textTheme.headline6,
+              style: Theme.of(context).textTheme.titleLarge,
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 40),
