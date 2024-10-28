@@ -23,7 +23,9 @@ if (flutterVersionName == null) {
 }
 
 android {
+    namespace "com.example.bloc_list_tab_carousel"
     compileSdkVersion flutter.compileSdkVersion
+    ndkVersion flutter.ndkVersion
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8

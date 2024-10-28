@@ -12,11 +12,10 @@ class AppState {
     this.isPremium = false,
   });
 
-  const AppState.update(int index, String language, String title, bool premium)
-      : this.initial(
-          navigationIndex: index,
-          userLanguage: language,
-          pageTitle: title,
-          isPremium: premium,
-        );
+  const AppState.update({
+    required this.navigationIndex,
+    required this.userLanguage,
+    required this.pageTitle,
+    required this.isPremium,
+  });
 }

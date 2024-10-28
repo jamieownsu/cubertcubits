@@ -17,10 +17,10 @@ class AppCubit extends Cubit<AppState> {
     );
     emit(
       AppState.update(
-        index,
-        state.userLanguage,
-        routes[index],
-        state.isPremium,
+        navigationIndex: index,
+        userLanguage: state.userLanguage,
+        pageTitle: routes[index],
+        isPremium: state.isPremium,
       ),
     );
   }
@@ -28,10 +28,10 @@ class AppCubit extends Cubit<AppState> {
   updateUserLanguage(String language) {
     emit(
       AppState.update(
-        state.navigationIndex,
-        language,
-        state.pageTitle,
-        state.isPremium,
+        navigationIndex: state.navigationIndex,
+        userLanguage: language,
+        pageTitle: state.pageTitle,
+        isPremium: state.isPremium,
       ),
     );
   }
@@ -39,10 +39,10 @@ class AppCubit extends Cubit<AppState> {
   updateIsPremium(bool isPremium) {
     emit(
       AppState.update(
-        state.navigationIndex,
-        state.userLanguage,
-        state.pageTitle,
-        isPremium,
+        navigationIndex: state.navigationIndex,
+        userLanguage: state.userLanguage,
+        pageTitle: state.pageTitle,
+        isPremium: isPremium,
       ),
     );
   }
