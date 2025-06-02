@@ -9,7 +9,7 @@ class AppCubit extends Cubit<AppState> {
 
   AppCubit() : super(const AppState.initial());
 
-  updateNavigationIndex(int index) {
+  void updateNavigationIndex(int index) {
     controller.animateToPage(
       index,
       duration: const Duration(milliseconds: 400),
@@ -25,7 +25,7 @@ class AppCubit extends Cubit<AppState> {
     );
   }
 
-  updateUserLanguage(String language) {
+  void updateUserLanguage(String language) {
     emit(
       AppState.update(
         navigationIndex: state.navigationIndex,
@@ -36,7 +36,7 @@ class AppCubit extends Cubit<AppState> {
     );
   }
 
-  updateIsPremium(bool isPremium) {
+  void updateIsPremium(bool isPremium) {
     emit(
       AppState.update(
         navigationIndex: state.navigationIndex,

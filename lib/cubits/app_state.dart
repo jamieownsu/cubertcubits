@@ -1,5 +1,3 @@
-enum AppStatus { initial, update }
-
 class AppState {
   final int navigationIndex;
   final String userLanguage, pageTitle;
